@@ -94,15 +94,16 @@
           <h1 class="fs-6 mt-4 ">Enter Your Vehicle Details</h1>
           <div class="mb-3 custom-form">
             <label for="formGroupExampleInput" class="form-label mt-2"
-              >Vehicle Model</label
+              >Vehicle Number</label
             >
             <input
               type="text"
               v-model="veh_num"
               class="form-control"
               id="formGroupExampleInput"
-              placeholder="Vehicle Model"
+              placeholder="Eg. U 1234"
             />
+            <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
             <label  for="Type" class="mt-4"> Vehicle Type</label>
             <select v-model="type" id="Type" class="custom-input">
               <option value="reg">Regestered</option>
@@ -114,18 +115,10 @@
             <label for="formGroupExampleInput2" class="form-label mt-2"
               >District</label
             >
-            <!-- <input
-              type="text"
-              class="form-control"
-              
-              id="formGroupExampleInput2"
-              placeholder="District"
-            /> -->
-
 
             <select id="dname" name="dname" class="custom-input "  v-model="distt">
 
-              <option selected="selected" value=""  >-- Select District --</option>
+              <option selected="selected" value= ""  >-- Select District --</option>
 
               
             <option value="abbotabad">Abbottabad</option><option value="bannu">Bannu</option>
@@ -133,6 +126,7 @@
             <option value="charsada">Charsadda</option><option value="chitral">Chitral</option>
             <option value="dikhan">Dera Ismail Khan</option><option value="hangu">Hangu</option><option value="haripur">Haripur</option><option value="karak">Karak</option><option value="kohat">Kohat</option><option value="kohistan">Kohistan</option><option value="lmarwat">Lakki Marwat</option><option value="lower_dir">Lower Dir (PATA)</option><option value="malakand">Malakand (PATA)</option><option value="mansehra">Mansehra</option><option value="mardan">Mardan</option><option value="nowshera">Nowshera</option><option value="peshawar">Peshawar</option><option value="shangla">Shangla</option><option value="swabi">Swabi</option><option value="swat">Swat </option><option value="tank">Tank</option><option value="torghar">Tor Ghar</option><option value="uper_dir">Upper Dir</option>
                           </select>
+                          <p v-if = "distt_err != '' " class="text-danger"><small>{{distt_err}}</small></p>
           </div>
           <button @click="getResults" class="custom-btn  mt-3 ">
             <span v-if="btntext !== 'Check Details' ">
@@ -226,18 +220,32 @@
         el: "#app",
         data: {
           url_kpk: "https://pak-vehicles.herokuapp.com/kpk/",
-          veh_num: "U%201417",
-          distt: "peshawar",
+          veh_num: "",
+          distt: "",
           type: "reg",
           results: "",
           btntext: "Check Details",
           loaderUrl: "https://i.gifer.com/ZZ5H.gif",
           responseErroe: "",
+          veh_err: "",
+          distt_err: ""
         },
 
         methods: {
           getResults() {
             let _this = this;
+            if(_this.veh_num == "" ){
+              _this.veh_err ="Please Enter Vehicle number";
+              return
+            }else {
+              this.veh_err = "";
+            }
+            if(this.distt == "" ){
+              this.distt_err ="Please Select Your District";
+              return
+            }else {
+              this.distt_err = "";
+            }
             _this.btntext = "please wait...";
             axios
               .get(
