@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="online free vehicle verification checker ">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/ict_styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous" />
+
+  <title>Islamabad vehicle verification</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- navbar starts here -->
+    <div id="navItems">
+      <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid nav-group">
+          <a class="navbar-brand colorWhite" href="#">Emodian</a>
+          <button class="navbar-toggler dropdown dropdown-toggle" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item px-4">
+                <a class="colorWhite nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link colorWhite" href="#">Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="colorWhite nav-link dropdown  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Province
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Another action</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="rounded custom-btn " type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- form div starts here -->
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-8  ">
+        <h1 class="fs-6 mt-4 ">Enter Your Vehicle Details</h1>
+        <div class="mb-3 custom-form">
+          <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Number</label>
+          <input type="text" v-model="veh_num" class="form-control" id="formGroupExampleInput"
+            placeholder="Vehicle Number" />
+          <p><small class="text-danger">{{veh_err}}</small></p>
+
+        </div>
+
+        <button @click="getResults" class="custom-btn  mt-3 ">
+          <span v-if="btntext !== 'Check Details' ">
+            <!-- <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp; -->
+            <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status"
+              style="width: 15px; height: 15px;"></span> &nbsp;
+          </span>
+          <span v-text="btntext"></span>
+        </button>
+      </div>
+
+    </div>
+    <div class="col-md-12">
+      <div class="row d-flex justify-content-center">
+
+        <div class="alert alert-success col-md-6 mt-5" role="alert" v-if="results != '' ">
+          Status: {{results.status}}
+        </div>
+      </div>
+    </div>
+
+    <!-- rersults div starts here -->
+    <div class="row  ">
+      <div class="col-md-12 d-flex justify-content-center mt-5">
+        <div v-if="responseErroe != '' " class="alert alert-danger col-md-6" role="alert">
+          {{responseErroe}}
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="results" v-if="results != '' ">
+      <div class=" container d-flex justify-content-center ">
+        <div class="col-md-8 ">
+
+        </div>
+      </div>
+    </div>
+
+    <div v-else="results == '' ">
+
+      <h2>Content</h2>
+    </div>
+
+
+    <!-- {{ results }} -->
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+    crossorigin="anonymous"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        url_islamabad: "https://pak-vehicles.herokuapp.com/check-smart-card-islamabad/",
+        veh_num: "",
+        results: "",
+        btntext: "Check Details",
+        loaderUrl: "spinner-border text-primary",
+        responseErroe: "",
+        isClicked: false,
+        veh_err: ""
+      },
+
+      methods: {
+        getResults() {
+          let _this = this;
+          if (this.veh_num == "") {
+            this.veh_err = "please enter vehicle number"
+            return
+          } else {
+            this.veh_err = ""
+          }
+          _this.btntext = "Loading...";
+          _this.isClicked = true;
+          axios
+            .get(
+              `${this.url_islamabad}?veh_num=${this.veh_num}`
+            )
+            .then(function (res) {
+              _this.btntext = "Check Details";
+              this.isClicked = false;
+              _this.responseErroe = "";
+              console.log(res.data);
+              _this.results = res.data;
+              const obj = _this.results;
+              for (const property in obj) {
+                console.log(`${property} :${obj[property]}`);
+              }
+              console.log(obj);
+            })
+            .catch(function (err) {
+              _this.btntext = "Check Details";
+              _this.results = "";
+              _this.responseErroe = "Data not found";
+            });
+        },
+      },
+      created: function () { },
+    });
+  </script>
+
+</body>
+
+</html>
