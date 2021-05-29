@@ -5,14 +5,13 @@
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="online free vehicle verification checker ">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/ict_styles.css" />
+  <link rel="stylesheet" href="css/kpk_styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous" />
 
-  <title>Islamabad vehicle verification</title>
+  <title>KPK Vehicle Verification</title>
 </head>
 
 <body>
@@ -30,12 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item px-4">
-                <a
-                  class="colorWhite nav-link active"
-                  aria-current="page"
-                  href="./index.html"
-                  >Home</a
-                >
+                <a class="colorWhite nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
               <li class="nav-item px-4">
                 <a class="nav-link colorWhite" href="/punjab.html">Punjab</a>
@@ -44,24 +38,18 @@
                 <a class="nav-link colorWhite" href="/./kpk.html">KPK</a>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  class="colorWhite nav-link dropdown dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                <a class="colorWhite nav-link dropdown dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
                   Islamabad
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="./islamabad.html">Card Status Check</a></li>
-                  
+
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="./ictOwnerDetails.html">Owner Details</a>
+                    <a class="dropdown-item" href="#">Owner Details</a>
                   </li>
                 </ul>
               </li>
@@ -81,59 +69,110 @@
       <div class="col-md-8  ">
         <h1 class="fs-6 mt-4 ">Enter Your Vehicle Details</h1>
         <div class="mb-3 custom-form">
+          <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Registration date</label>
+          <input type="text" v-model="reg_date" class="form-control" id="formGroupExampleInput"
+            placeholder="eg: 2016-05-12" />
+          <p v-if="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
+        </div>
+        <div class="mb-3 custom-form">
           <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Number</label>
           <input type="text" v-model="veh_num" class="form-control" id="formGroupExampleInput"
-            placeholder="Vehicle Number" />
-          <p><small class="text-danger">{{veh_err}}</small></p>
-
+            placeholder="AAW-538" />
+          <p v-if="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
         </div>
-
+        
         <button @click="getResults" class="custom-btn  mt-3 ">
           <span v-if="btntext !== 'Check Details' ">
-            <!-- <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp; -->
-            <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status"
-              style="width: 15px; height: 15px;"></span> &nbsp;
-          </span>
-          <span v-text="btntext"></span>
+            <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span><span v-text="btntext"></span>
         </button>
-      </div>
-
-    </div>
-    <div class="col-md-12">
-      <div class="row d-flex justify-content-center">
-
-        <div class="alert alert-success col-md-6 mt-5" role="alert" v-if="results != '' ">
-          Status: {{results.status}}
-        </div>
       </div>
     </div>
 
     <!-- rersults div starts here -->
-    <div class="row  ">
-      <div class="col-md-12 d-flex justify-content-center">
-        <div v-if="responseErroe != '' " class="alert alert-danger col-md-6" role="alert">
-          {{responseErroe}}
-        </div>
-      </div>
-    </div>
-    </div>
+    <div v-if="responseErroe != '' ">{{responseErroe}}</div>
     <div id="results" v-if="results != '' ">
       <div class=" container d-flex justify-content-center ">
         <div class="col-md-8 ">
 
+
+          <table class="table table-bordered caption-top">
+            <h4 class="mt-4">Results</h4>
+            <tbody>
+              <tr>
+                <td style="width: 40%">Owner Name</td>
+                <td>{{results.owner_name}}</td>
+              </tr>
+              </tr>
+              <td style="width: 40%">Registration Date</td>
+              <td>{{results.registration_date}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Body Type</td>
+                <td>{{results.bodytype}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Chassis Number</td>
+                <td>{{results.chassis_no}}</td>
+              </tr>
+              <tr>
+              <tr>
+                <td style="width: 40%">Color</td>
+                <td>{{results.color}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Engine Number</td>
+                <td>{{results.engine_no}}</td>
+
+              <tr>
+              <tr>
+                <td style="width: 40%">Engine Size</td>
+                <td>{{results.engine_size}}</td>
+
+              <tr>
+                <td style="width: 40%">Maker Make</td>
+                <td>{{results.maker-make}}</td>
+              </tr>
+              
+              <tr>
+                <td style="width: 40%">Registration Number</td>
+                <td>{{results.registration_no}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">purchase Type</td>
+                <td>{{results.purchase_type}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Year Of Manufecture</td>
+                <td>{{results.year_of_manufacture}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Tex Paid Up To</td>
+                <td>{{results.tax_paid_upto}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
     <div v-else="results == '' ">
-
-      <h2>Content</h2>
+      <h3>Content</h3>
     </div>
 
 
     <!-- {{ results }} -->
 
   </div>
+  <footer class="d-flex  justify-content-center " style="margin-top: 13rem">
+    <div class=" text-center d-flex  justify-content-between ">
+      &copy;2021 All rights reserved &nbsp;
+      <span>
+        Made with <img src="./img/Heart.jpg" width="20px" ; alt="Love"> in <a href="www.emodiantechnologies.com" target="_blank">Emodian
+          Technologies </a>
+      </span>
+    </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
     integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
@@ -150,42 +189,40 @@
     new Vue({
       el: "#app",
       data: {
-        url_islamabad: "https://pak-vehicles.herokuapp.com/check-smart-card-islamabad/",
+        url_ict_owner: "https://pak-vehicles.herokuapp.com/check-ict-veh-details/",
+        reg_date: "",
         veh_num: "",
         results: "",
         btntext: "Check Details",
-        loaderUrl: "spinner-border text-primary",
+        loaderUrl: "https://i.gifer.com/ZZ5H.gif",
         responseErroe: "",
-        isClicked: false,
-        veh_err: ""
+        veh_err: "",
       },
 
       methods: {
         getResults() {
           let _this = this;
-          if (this.veh_num == "") {
-            this.veh_err = "please enter vehicle number"
+          if (_this.reg_date == "") {
+            _this.veh_err = "Please Enter Vehicle number";
             return
           } else {
-            this.veh_err = ""
+            this.veh_err = "";
           }
-          _this.btntext = "Loading...";
-          _this.isClicked = true;
+          _this.btntext = "please wait...";
           axios
             .get(
-              `${this.url_islamabad}?veh_num=${this.veh_num}`
+              `${this.url_ict_owner}?reg_date=${this.reg_date}&veh_num=${this.veh_num}`
             )
             .then(function (res) {
               _this.btntext = "Check Details";
-              this.isClicked = false;
               _this.responseErroe = "";
-              console.log(res.data);
-              _this.results = res.data;
+              console.log(res.data.data.owner_name);
+              _this.results = res.data.data;
               const obj = _this.results;
               for (const property in obj) {
-                console.log(`${property} :${obj[property]}`);
+                // console.log(`${property} :${obj[property]}`);
               }
-              console.log(obj);
+              // console.log(obj);
             })
             .catch(function (err) {
               _this.btntext = "Check Details";
