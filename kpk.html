@@ -92,11 +92,12 @@
         </nav>
       </div>
       <!-- form div starts here -->
+      <div><h1 class="fs-5 fw-bold text mt-4 text-center">Khyber Puktunkhwa Vehicle Verification Check</h1></div>
       <div class="container d-flex justify-content-center">
         <div class="col-md-8  " > 
-          <h1 class="fs-6 mt-4 ">Enter Your Vehicle Details</h1>
+          <h1 class="fs-6 mt-4 fw-bold">Enter Your Vehicle Details</h1>
           <div class="mb-3 custom-form">
-            <label for="formGroupExampleInput" class="form-label mt-2"
+            <label for="formGroupExampleInput" class=" fw-bold form-label mt-2"
               >Vehicle Number</label
             >
             <input
@@ -107,7 +108,7 @@
               placeholder="Eg. U 1234"
             />
             <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
-            <label  for="Type" class="mt-4"> Vehicle Type</label>
+            <label  for="Type" class="mt-4 fw-bold"> Vehicle Type</label>
             <select v-model="type" id="Type" class="custom-input">
               <option value="reg">Regestered</option>
               <option value="temp">Temperory</option>
@@ -115,7 +116,7 @@
             </select>
           </div>
           <div class="mb-3 custom-form">
-            <label for="formGroupExampleInput2" class="form-label mt-2"
+            <label for="formGroupExampleInput2" class=" fw-bold form-label mt-2"
               >District</label
             >
 

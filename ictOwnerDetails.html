@@ -77,7 +77,7 @@
         <div class="mb-3 custom-form">
           <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Number</label>
           <input type="text" v-model="veh_num" class="form-control" id="formGroupExampleInput"
-            placeholder="AAW-538" />
+            placeholder="AAW-123" />
           <p v-if="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
         </div>
         
@@ -138,7 +138,7 @@
                 <td>{{results.registration_no}}</td>
               </tr>
               <tr>
-                <td style="width: 40%">purchase Type</td>
+                <td style="width: 40%">Purchase Type</td>
                 <td>{{results.purchase_type}}</td>
               </tr>
               <tr>
