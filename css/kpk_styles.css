@@ -11,6 +11,10 @@
     position: relative;
     box-shadow: 0 3px 6px rgb(0 0 0 / 10%)
 }
+
+.form-control:focus {
+    box-shadow: none;
+}
 .nav-item :hover{
     color: 	#FFA500 !important;
 }

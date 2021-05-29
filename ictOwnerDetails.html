@@ -216,12 +216,14 @@
             .then(function (res) {
               _this.btntext = "Check Details";
               _this.responseErroe = "";
+              _this.reg_date ="",
+              _this.veh_num ="",
               console.log(res.data.data.owner_name);
               _this.results = res.data.data;
               const obj = _this.results;
-              for (const property in obj) {
-                // console.log(`${property} :${obj[property]}`);
-              }
+              // for (const property in obj) {
+              //   // console.log(`${property} :${obj[property]}`);
+              // }
               // console.log(obj);
             })
             .catch(function (err) {
