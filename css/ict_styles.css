@@ -14,6 +14,10 @@
 .nav-item :hover {
   color: #ffa500 !important;
 }
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: #ced4da !important;
+}
 
 .colorWhite {
   font-family: sans-serif;
