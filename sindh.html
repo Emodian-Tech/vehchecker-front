@@ -113,6 +113,23 @@
             />
             <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>           
           </div>
+          <div>
+            <label class="fw-bold" for="radio">Vehicle Type</label>
+            <div class="d-flex mt-2">
+            <div class="form-check " style="padding-right: 21px !important;">
+              <input class="form-check-input " value="2" v-model="wheelsType" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+               svg two wheels
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input"  value="1" v-model="wheelsType" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                svg 4 wheels
+              </label>
+            </div>
+          </div>
+        </div>
           <button @click="getResults" class="custom-btn  mt-3 ">
             <span v-if="btntext !== 'Check Details' ">
               <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span
@@ -131,42 +148,9 @@
           <table class="table table-bordered caption-top">
             <h4 class="mt-4">Results</h4>
             <tbody>
-              <tr>
-                <td style="width: 40%">Owner Name</td>
-                <td>{{results.owner_name}}</td>
-              </tr>
-            </tr>
-            <td style="width: 40%">Father/ Husband Name</td>
-            <td>{{results.father_husband_name}}</td>
-          </tr>
-              <tr>
-                <td style="width: 40%">Body Type</td>
-                <td>{{results.body_type}}</td>
-              </tr>
-              <tr>
-                <td style="width: 40%">Chassis Number</td>
-                <td>{{results.chassis_number}}</td>
-              </tr>
-              <tr>
-              <tr>
-                <td style="width: 40%">Color</td>
-                <td>{{results.color}}</td>
-              </tr>
-              <tr>
-                <td style="width: 40%">Engine Number</td>
-                <td>{{results.engine_number}}</td>
-              
-              <tr>
-                <td style="width: 40%">Maker Make</td>
-                <td>{{results.maker_make}}</td>
-              </tr>
-              <tr>
-                <td style="width: 40%">Model</td>
-                <td>{{results.model}}</td>
-              </tr>
-              <tr>
-                <td style="width: 40%">Registration Number</td>
-                <td>{{results.registration_number}}</td>
+              <tr v-for= "(result, index) in results ">
+                <td style="width: 40%">{{index.toUpperCase().replace("_", " ")}}</td>
+                <td>{{result}}</td>
               </tr>
             </tbody>
           </table>
@@ -203,10 +187,10 @@
       new Vue({
         el: "#app",
         data: {
-          url_kpk: "https://pak-vehicles.herokuapp.com/kpk/",
+          url_sindh: "https://pak-vehicles.herokuapp.com/sindh/",
           veh_num: "",
+          wheelsType : 1,
           distt: "",
-          type: "reg",
           results: "",
           btntext: "Check Details",
           loaderUrl: "https://i.gifer.com/ZZ5H.gif",
@@ -224,16 +208,11 @@
             }else {
               this.veh_err = "";
             }
-            if(this.distt == "" ){
-              this.distt_err ="Please Select Your District";
-              return
-            }else {
-              this.distt_err = "";
-            }
+           
             _this.btntext = "please wait...";
             axios
               .get(
-                `${this.url_kpk}?veh_num=${this.veh_num}&distt=${this.distt}&type=${this.type}`
+                `${this.url_sindh}?veh_num=${this.veh_num}&wheelers_type=${this.wheelsType}`
               )
               .then(function (res) {
                 _this.btntext = "Check Details";

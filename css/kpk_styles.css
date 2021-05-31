@@ -64,6 +64,17 @@
     border-color: #198754 !important;
 }
 
+.form-check-input:checked {
+    background-color: #FFA500  !important;
+    border-color: #FFA500 !important;
+}
+
+.form-check-input:focus {
+    border-color: #FFA500  !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
 .form-group{
     width: 35%;
 }
