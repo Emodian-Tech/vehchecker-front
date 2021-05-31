@@ -22,6 +22,7 @@
 }
 .nav-item :hover{
     color: 	#FFA500 !important;
+    
 }
 
 .colorWhite{
@@ -41,6 +42,11 @@
     background-clip: padding-box;
     border: 1px solid #ced4da
 }
+
+/* .custom-input:focus-visible{
+    /* border-color: #ffff !important; */
+
+} */
 .btn-outline-success {
     border-color: #ffff !important;
 }
