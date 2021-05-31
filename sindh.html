@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
 
-    <title>KPK Vehicle Verification</title>
+    <title>Sindh Vehicle Verification</title>
   </head>
   <body>
     <div id="app">
@@ -95,7 +95,7 @@
         </nav>
       </div>
       <!-- form div starts here -->
-      <div><h1 class="fs-4  text mt-4 text-center">Khyber Puktunkhwa Vehicle Verification Check</h1></div>
+      <div><h1 class="fs-4 fw-bold text mt-4 text-center">Sindh Vehicle Verification Check</h1></div>
       <p class="text-center fs-5 mt-4"> Check vehicle registration and ownership details for Khyber Pakhtunkhwa .  Free vehicle registration <br> check online for any vehicle in Capital of Pakistan.</p>
       <div class="container d-flex justify-content-center">
         <div class="col-md-8  " > 
@@ -111,30 +111,7 @@
               id="formGroupExampleInput"
               placeholder="Eg. U 1234"
             />
-            <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
-            <label  for="Type" class="mt-4 fw-bold"> Vehicle Type</label>
-            <select v-model="type" id="Type" class="custom-input">
-              <option value="reg">Regestered</option>
-              <option value="temp">Temperory</option>
-
-            </select>
-          </div>
-          <div class="mb-3 custom-form">
-            <label for="formGroupExampleInput2" class=" fw-bold form-label mt-2"
-              >District</label
-            >
-
-            <select id="dname" name="dname" class="custom-input "  v-model="distt">
-
-              <option selected="selected" value= ""  >-- Select District --</option>
-
-              
-            <option value="abbotabad">Abbottabad</option><option value="bannu">Bannu</option>
-            <option value="battagram">Battagram</option><option value="buner">Buner</option>
-            <option value="charsada">Charsadda</option><option value="chitral">Chitral</option>
-            <option value="dikhan">Dera Ismail Khan</option><option value="hangu">Hangu</option><option value="haripur">Haripur</option><option value="karak">Karak</option><option value="kohat">Kohat</option><option value="kohistan">Kohistan</option><option value="lmarwat">Lakki Marwat</option><option value="lower_dir">Lower Dir (PATA)</option><option value="malakand">Malakand (PATA)</option><option value="mansehra">Mansehra</option><option value="mardan">Mardan</option><option value="nowshera">Nowshera</option><option value="peshawar">Peshawar</option><option value="shangla">Shangla</option><option value="swabi">Swabi</option><option value="swat">Swat </option><option value="tank">Tank</option><option value="torghar">Tor Ghar</option><option value="uper_dir">Upper Dir</option>
-                          </select>
-                          <p v-if = "distt_err != '' " class="text-danger"><small>{{distt_err}}</small></p>
+            <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>           
           </div>
           <button @click="getResults" class="custom-btn  mt-3 ">
             <span v-if="btntext !== 'Check Details' ">
