@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/kpk_styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous" />
+    <meta name= "description" content="Check vehicle registration and ownership details for Islamabad. Free vehicle registration check online for any vehicle in Capital of Pakistan.">
+
+  <title>KPK Vehicle Verification</title>
+  <style>
+    h1 {
+      font-size: 1.4rem;
+      margin: 2rem 0px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      padding: 7px 0px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div id="app">
+    <!-- navbar starts here -->
+    <div id="navItems">
+      <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid nav-group">
+          <a class="navbar-brand colorWhite" href="./index.html">Emodian</a>
+          <button class="navbar-toggler dropdown dropdown-toggle" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item px-4">
+                <a class="colorWhite nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link colorWhite" href="/punjab.html">Punjab</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link colorWhite" href="/./kpk.html">KPK</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link colorWhite" href="/./kpk.html">Sindh</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="colorWhite nav-link dropdown dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Islamabad
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="./islamabad.html">Card Status Check</a></li>
+
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./online-vehicle-verification-islamabad.html">Vehicle Details</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="rounded custom-btn " type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- form div starts here -->
+    <div>
+      <h1 class="fs-4  text mt-4 text-center">Islamabad Vehicle Verification Check</h1>
+    </div>
+    <p class="text-center fs-5 mt-4"> Check vehicle registration and ownership details for Islamabad. Free vehicle
+      registration <br> check online for any vehicle in Capital of Pakistan.</p>
+
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-8  ">
+        <h1 class="fs-6 mt-4 ">Enter Your Vehicle Details</h1>
+        <div class="mb-3 custom-form">
+          <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Registration date</label>
+          <input type="text" v-model="reg_date" class="form-control" id="formGroupExampleInput"
+            placeholder="eg: 2016-05-14" />
+          <p v-if="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
+        </div>
+        <div class="mb-3 custom-form">
+          <label for="formGroupExampleInput" class="form-label mt-2">Vehicle Number</label>
+          <input type="text" v-model="veh_num" class="form-control" id="formGroupExampleInput" placeholder="AAW-123" />
+          <p v-if="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>
+        </div>
+
+        <button @click="getResults" class="custom-btn  mt-3 ">
+          <span v-if="btntext !== 'Check Details' ">
+            <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span><span v-text="btntext"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- rersults div starts here -->
+    <div v-if="responseErroe != '' ">{{responseErroe}}</div>
+    <div id="results" v-if="results != '' ">
+      <div class=" container d-flex justify-content-center ">
+        <div class="col-md-8 ">
+
+
+          <table class="table table-bordered caption-top">
+            <h4 class="mt-4">Results</h4>
+            <tbody>
+              <tr>
+                <td style="width: 40%">Owner Name</td>
+                <td>{{results.owner_name}}</td>
+              </tr>
+              </tr>
+              <td style="width: 40%">Registration Date</td>
+              <td>{{results.registration_date}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Body Type</td>
+                <td>{{results.bodytype}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Chassis Number</td>
+                <td>{{results.chassis_no}}</td>
+              </tr>
+              <tr>
+              <tr>
+                <td style="width: 40%">Color</td>
+                <td>{{results.color}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Engine Number</td>
+                <td>{{results.engine_no}}</td>
+
+              <tr>
+              <tr>
+                <td style="width: 40%">Engine Size</td>
+                <td>{{results.engine_size}}</td>
+
+              <tr>
+                <td style="width: 40%">Maker Make</td>
+                <td>{{results.maker-make}}</td>
+              </tr>
+
+              <tr>
+                <td style="width: 40%">Registration Number</td>
+                <td>{{results.registration_no}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Purchase Type</td>
+                <td>{{results.purchase_type}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Year Of Manufecture</td>
+                <td>{{results.year_of_manufacture}}</td>
+              </tr>
+              <tr>
+                <td style="width: 40%">Tex Paid Up To</td>
+                <td>{{results.tax_paid_upto}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1><span lang=EN-US>Online Vehicle Verification Islamabad</span><span lang=EN-US
+          style='font-size:12.0pt;mso-bidi-font-size:14.0pt;line-height:115%'><span style='mso-tab-count:1'> </span>
+          <o:p></o:p>
+        </span></h1>
+
+      <p><span lang=EN-US>Excise and
+          Taxation Department Partnership with NADRA, and MTMIS the Islamabad
+          administration has also introduced doorstep services. You can use this service
+          to verify your new vehicles at your home within Islamabad's city limits.</span></p>
+
+      <p><span lang=EN-US>At government
+          agencies, we all dislike the interminable lines and long wait times. People may
+          now verify and register their vehicles from the comfort of their own homes, due
+          to science and technology. As we mentioned on our website in all the provinces
+          of Pakistan introduced online vehicle verification to facilitate the citizen.</span></p>
+
+      <p><span lang=EN-US>Things have
+          become smoother, easier, and less time-consuming thanks to the online car
+          verification system. We'll walk you through the online verification process in
+          this article. </span></p>
+
+      <p><span lang=EN-US>As the other
+          parts of the country Excise and Taxation Department Islamabad the Federal
+          Capital has online verification of vehicles as well. If you are living in
+          Islamabad would be pleased to know about this amazing facility.</span></p>
+
+      <p><span lang=EN-US>Without a doubt,
+          unlike other provinces and cities, the Federal Capital would provide unique
+          services. Though, as you could expect, the registration, verification, and
+          other such services will be more expensive than the normal services.</span></p>
+
+      <p><span lang=EN-US>The only thing
+          you need to do is stay up to speed on the department's terms and policies as a
+          dedicated community member who follows the laws and regulations.</span></p>
+
+      <p><span lang=EN-US>Apart from that,
+          if you want to buy or sell a car, you must keep all of the needed documents
+          legally, according to the state's guidance.</span></p>
+
+      <h2><span lang=EN-US>How to Verify Vehicle Online in Islamabad?</span></h2>
+
+      <p><span lang=EN-US>How and where
+          could this process continue if you are uninformed of the procedure? Don't
+          worry, we'll give you all the information and instructions you need to validate
+          your vehicle on your phone or computer. Don't forget to read this page for the
+          complete procedure.</span></p>
+
+      <p><span lang=EN-US>You must log in
+          to the online verification portal on the Excise and Taxation Department of
+          Islamabad's website (we will supply you with the link on this page) and follow
+          the instructions step by step. Whether you're a buyer or a seller, you'll have
+          all the information you need about your car in minutes.</span></p>
+
+      <h2><span lang=EN-US>What information I would be able to find in the portal
+          about vehicles?</span></h2>
+
+      <p><span lang=EN-US><span>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></span><span lang=EN-US>Visit the Excise and Taxation
+          Department's official website in Islamabad.</span></p>
+
+      <p><span>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>As soon as the website is
+          opened, a box will display on the screen.</span></p>
+
+      <p><span>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>You will be directed to the
+          Registration Number query box.</span></p>
+
+      <p>
+        ><span>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Enter your registration number
+          and press the search button</span></p>
+
+      <h2><span lang=EN-US>What kind of information will be available in the online
+          Portal?</span></h2>
+
+      <p class=MsoListParagraphCxSpFirst style='text-align:justify;text-indent:-.25in;
+        mso-list:l1 level1 lfo5'><span lang=EN-US><span>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></span><span lang=EN-US>The online portal will then
+          display the following information to you:</span></p>
+
+      <p><span>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Registration Date,</span></p>
+
+      <p><span>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Model Year, </span></p>
+
+      <p><span>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Engine Number, </span></p>
+
+      <p><span>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Owner’s Name (Individual or
+          Company), </span></p>
+
+      <p><span>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Tax paid or tax due, </span></p>
+
+      <p><span>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>Vehicle body type, </span></p>
+
+      <p><span>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span></span><span lang=EN-US>and Final remarks</span></p>
+
+      <p><span class="fw-bold">Contact Details
+          of Online Vehicle Verification Islamabad</span></p>
+
+      <p><span lang=EN-US>Address<span> </span>HEC building,
+          Service Road East, Near H 9/4, Islamabad</span></p>
+
+      <p><span lang=EN-US>Telephone#<span> </span>051-90395386/ 051-2775386</span></p>
+
+      <p><span lang=EN-US>Email:<span> </span>mail@islamabadexcise.gov.pk</span></p>
+
+      <p><span lang=EN-US>Website:<span> </span><a
+            href="http://islamabadexcise.gov.pk/">http://islamabadexcise.gov.pk/</a></span></p>
+
+      <p><span lang=EN-US>Finally, we are
+          delighted to provide you with all of the above information, which we are
+          confident, will be useful to you when the time comes to buy or sell a vehicle.
+          Keep an eye on this site for more stuff like this. If you require information
+          about other provinces (except Baluchistan), please visit our website <a
+            href="http://vehicleverification.pk/">vehicleverification.pk</a></span></p>
+    </div>
+
+
+    <!-- {{ results }} -->
+
+  </div>
+  <footer class="d-flex  justify-content-center " style="margin-top: 13rem">
+    <div class=" text-center d-flex  justify-content-between ">
+      &copy;2021 All rights reserved &nbsp;
+      <span>
+        Made with <img src="./img/Heart.jpg" width="20px" ; alt="Love"> in <a href="www.emodiantechnologies.com"
+          target="_blank">Emodian
+          Technologies </a>
+      </span>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+    crossorigin="anonymous"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        url_ict_owner: "http://159.65.169.2:8001/check-ict-veh-details/",
+        reg_date: "",
+        veh_num: "",
+        results: "",
+        btntext: "Check Details",
+        loaderUrl: "https://i.gifer.com/ZZ5H.gif",
+        responseErroe: "",
+        veh_err: "",
+      },
+
+      methods: {
+        getResults() {
+          let _this = this;
+          if (_this.reg_date == "") {
+            _this.veh_err = "Please Enter Vehicle number";
+            return
+          } else {
+            this.veh_err = "";
+          }
+          _this.btntext = "please wait...";
+          axios
+            .get(
+              `${this.url_ict_owner}?reg_date=${this.reg_date}&veh_num=${this.veh_num}`
+            )
+            .then(function (res) {
+              _this.btntext = "Check Details";
+              _this.responseErroe = "";
+              _this.reg_date = "",
+                _this.veh_num = "",
+                console.log(res.data.data.owner_name);
+              _this.results = res.data.data;
+              const obj = _this.results;
+              // for (const property in obj) {
+              //   // console.log(`${property} :${obj[property]}`);
+              // }
+              // console.log(obj);
+            })
+            .catch(function (err) {
+              _this.btntext = "Check Details";
+              _this.results = "";
+              _this.responseErroe = "Data not found";
+            });
+        },
+      },
+      created: function () { },
+    });
+  </script>
+
+</body>
+
+</html>
