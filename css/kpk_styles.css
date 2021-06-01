@@ -63,7 +63,10 @@
     background-color: #ffff !important;
     border-color: #198754 !important;
 }
-
+.form-check-input{
+    width: 1.7em !important;
+    height: 1.7em !important;
+}
 .form-check-input:checked {
     background-color: #FFA500  !important;
     border-color: #FFA500 !important;
