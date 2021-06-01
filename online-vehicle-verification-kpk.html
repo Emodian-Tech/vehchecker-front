@@ -144,8 +144,10 @@
           </div>
           <button @click="getResults" class="custom-btn  mt-3 ">
             <span v-if="btntext !== 'Check Details' ">
-              <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span
-            ><span v-text="btntext"></span>
+              <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status" style="width: 15px; height: 15px;"></span> &nbsp;
+              </span
+              >
+              <span v-text="btntext"></span>
           </button>
         </div>
       </div>
