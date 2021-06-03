@@ -205,8 +205,10 @@
 
           <button @click="getResults" class="custom-btn mt-3">
             <span v-if="btntext !== 'Check Details' ">
-              <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span
-            ><span v-text="btntext"></span>
+              <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status" style="width: 15px; height: 15px;"></span> &nbsp;
+                </span
+                >
+                <span v-text="btntext"></span>
           </button>
         </div>
       </div>
@@ -494,7 +496,7 @@
           wheelsType: 1,
           results: "",
           btntext: "Check Details",
-          loaderUrl: "https://i.gifer.com/ZZ5H.gif",
+          isClicked: false,
           responseErroe: "",
           veh_err: "",
           distt_err: "",
@@ -511,12 +513,14 @@
             }
 
             _this.btntext = "please wait...";
+            _this.isClicked = true
             axios
               .get(
                 `${this.url_sindh}?veh_num=${this.veh_num}&wheelers_type=${this.wheelsType}`
               )
               .then(function (res) {
                 _this.btntext = "Check Details";
+                _this.isClicked = false,
                 _this.responseErroe = "";
                 _this.veh_num = "";
                 console.log(res.data.registration_number);

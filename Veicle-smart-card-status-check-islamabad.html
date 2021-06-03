@@ -102,7 +102,6 @@
 
         <button @click="getResults" class="custom-btn  mt-2 ">
           <span v-if="btntext !== 'Check Details' ">
-            <!-- <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp; -->
             <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status"
               style="width: 15px; height: 15px;"></span> &nbsp;
           </span>
@@ -221,7 +220,6 @@
         veh_num: "",
         results: "",
         btntext: "Check Details",
-        loaderUrl: "spinner-border text-primary",
         responseErroe: "",
         isClicked: false,
         veh_err: ""

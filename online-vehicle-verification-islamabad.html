@@ -85,7 +85,7 @@
     </div>
     <!-- form div starts here -->
     <div>
-      <h1 class="fs-4  text mt-4 text-center">Islamabad Vehicle Verification Check</h1>
+      <h1 class="fs-4 mt-4 text-center">Islamabad Vehicle Verification Check</h1>
     </div>
     <p class="text-center fs-5 mt-4"> Check vehicle registration and ownership details for Islamabad. Free vehicle
       registration <br> check online for any vehicle in Capital of Pakistan.</p>
@@ -110,7 +110,7 @@
             <span v-bind:class="{'spinner-border spinner-border-sm':isClicked}" role="status" style="width: 15px; height: 15px;"></span> &nbsp;
               </span
               >
-              <span v-text="btntext"></span>ycodew
+              <span v-text="btntext"></span>
         </button>
       </div>
     </div>
@@ -347,6 +347,7 @@
         loaderUrl: "https://i.gifer.com/ZZ5H.gif",
         responseErroe: "",
         veh_err: "",
+        isClicked: false,
       },
 
       methods: {
@@ -358,13 +359,15 @@
           } else {
             this.veh_err = "";
           }
-          _this.btntext = "please wait...";
+          _this.btntext = "Please Wait...";
+          _this.isClicked =true
           axios
             .get(
               `${this.url_ict_owner}?reg_date=${this.reg_date}&veh_num=${this.veh_num}`
             )
             .then(function (res) {
               _this.btntext = "Check Details";
+              _this.isClicked = false
               _this.responseErroe = "";
               _this.reg_date = "",
                 _this.veh_num = "",

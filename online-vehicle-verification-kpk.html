@@ -103,7 +103,7 @@
         </nav>
       </div>
       <!-- form div starts here -->
-      <div><h1 class="fs-4  text mt-4 text-center">Khyber Puktunkhwa Vehicle Verification Check</h1></div>
+      <div><h1 class="fs-4   mt-4 text-center">Khyber Puktunkhwa Vehicle Verification Check</h1></div>
       <p class="text-center fs-5 mt-4"> Check vehicle registration and ownership details for Khyber Pakhtunkhwa . <br> Free vehicle registration  check online for any vehicle in Capital of Pakistan.</p>
       <div class="container d-flex justify-content-center">
         <div class="col-md-8  " > 
@@ -355,7 +355,7 @@
           type: "reg",
           results: "",
           btntext: "Check Details",
-          loaderUrl: "https://i.gifer.com/ZZ5H.gif",
+          isClicked: false,
           responseErroe: "",
           veh_err: "",
           distt_err: ""
@@ -376,7 +376,8 @@
             }else {
               this.distt_err = "";
             }
-            _this.btntext = "please wait...";
+            _this.btntext = "Please Wait...";
+            _this.isClicked =true
             axios
               .get(
                 `${this.url_kpk}?veh_num=${this.veh_num}&distt=${this.distt}&type=${this.type}`
@@ -384,6 +385,7 @@
               .then(function (res) {
                 _this.btntext = "Check Details";
                 _this.responseErroe = "";
+                _this.isClicked = false
                 console.log(res.data.registration_number);
                 _this.results = res.data;
                 const obj = _this.results;
