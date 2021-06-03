@@ -62,6 +62,6 @@
 }
 
 .pera_group {
-    width: 90%;
+    width: 90% !important;
     text-align: justify
 }

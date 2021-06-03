@@ -13,11 +13,13 @@
       integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
       crossorigin="anonymous"
     />
-    <meta name= "description" content="Check vehicle registration and ownership details for Khyber Pakhtunkhwa. Free vehicle registration check online for any vehicle in Capital of Pakistan.">
+    <meta
+      name="description"
+      content="Check vehicle registration and ownership details for Khyber Pakhtunkhwa. Free vehicle registration check online for any vehicle in Capital of Pakistan."
+    />
 
     <title>Sindh Vehicle Verification</title>
     <link rel="shortcut icon" href="./img/imgpsh_fullsize_anim.png" />
-
   </head>
   <body>
     <div id="app">
@@ -48,13 +50,25 @@
                   >
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link colorWhite" href="./online-vehicle-verification-punjab.html">Punjab</a>
+                  <a
+                    class="nav-link colorWhite"
+                    href="./online-vehicle-verification-punjab.html"
+                    >Punjab</a
+                  >
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link colorWhite" href="./online-vehicle-verification-kpk.html">KPK</a>
+                  <a
+                    class="nav-link colorWhite"
+                    href="./online-vehicle-verification-kpk.html"
+                    >KPK</a
+                  >
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link colorWhite" href="./online-vehicle-verification-sindh.html">Sindh</a>
+                  <a
+                    class="nav-link colorWhite"
+                    href="./online-vehicle-verification-sindh.html"
+                    >Sindh</a
+                  >
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -68,13 +82,23 @@
                     Islamabad
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="./Veicle-smart-card-status-check-islamabad.html">Card Status Check</a></li>
-                    
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="./Veicle-smart-card-status-check-islamabad.html"
+                        >Card Status Check</a
+                      >
+                    </li>
+
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
                     <li>
-                      <a class="dropdown-item" href="./online-vehicle-verification-sindh.html">Vehicle Details</a>
+                      <a
+                        class="dropdown-item"
+                        href="./online-vehicle-verification-sindh.html"
+                        >Vehicle Details</a
+                      >
                     </li>
                   </ul>
                 </li>
@@ -86,47 +110,85 @@
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button
-                  class="rounded custom-btn "
-                  type="submit"
-                >
-                  Search
-                </button>
+                <button class="rounded custom-btn" type="submit">Search</button>
               </form>
             </div>
           </div>
         </nav>
       </div>
       <!-- form div starts here -->
-      <h1 class="fs-4 fw-bold  mt-5 text-center ">Sindh Vehicle Verification Check</h1>
-      <p class="text-center fs-5 mt-4"> Check vehicle registration and ownership details for Sindh .  Free vehicle registration <br> check online for any vehicle in Capital of Pakistan.</p>
+      <h1 class="fs-4 fw-bold mt-5 text-center">
+        Sindh Vehicle Verification Check
+      </h1>
+      <p class="text-center fs-5 mt-4">
+        Check vehicle registration and ownership details for Sindh . Free
+        vehicle registration <br />
+        check online for any vehicle in Capital of Pakistan.
+      </p>
       <div class="container d-flex justify-content-center">
-        <div class="col-md-8  " > 
+        <div class="col-md-8">
           <!-- <h1 class="fs-6 mt-4 fw-bold">Enter Your Vehicle Details</h1> -->
           <div>
-            <label class="fw-bold mt-4 fs-5" for="radio"> Select Your Vehicle Type: </label>
+            <label class="fw-bold mt-4 fs-5" for="radio">
+              Select Your Vehicle Type:
+            </label>
             <div class="d-flex justify-content-around">
-              <img src="./img/car-2-icon-11-256.png" style="width: 11rem; height: auto;" alt="four wheels">
-              <img src="./img/download.png" style="width: 11rem; height: auto;" alt="two wheels ">
+              <img
+                src="./img/car-2-icon-11-256.png"
+                style="width: 11rem; height: auto"
+                alt="four wheels"
+              />
+              <img
+                src="./img/download.png"
+                style="width: 11rem; height: auto"
+                alt="two wheels "
+              />
             </div>
             <div class="d-flex justify-content-around mt-2">
-           
-            <div class="form-check d-flex" style="align-items: center;">
-              <input class="form-check-input"   value="1" v-model="wheelsType" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label fs-5 fw-bold" style="padding-left: 1rem;"  for="flexRadioDefault2">
-                Four Wheels
-              </label>
-            </div>
-            <div class="form-check d-flex  " style="padding-right: 21px !important; align-items: center;">
-              <input class="form-check-input " value="2" v-model="wheelsType" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label fw-bold fs-5" style="padding-left: 1rem;" for="flexRadioDefault1">
-               Two Wheels
-              </label>
+              <div class="form-check d-flex" style="align-items: center">
+                <input
+                  class="form-check-input"
+                  value="1"
+                  v-model="wheelsType"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label
+                  class="form-check-label fs-5 fw-bold"
+                  style="padding-left: 1rem"
+                  for="flexRadioDefault2"
+                >
+                  Four Wheels
+                </label>
+              </div>
+              <div
+                class="form-check d-flex"
+                style="padding-right: 21px !important; align-items: center"
+              >
+                <input
+                  class="form-check-input"
+                  value="2"
+                  v-model="wheelsType"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label
+                  class="form-check-label fw-bold fs-5"
+                  style="padding-left: 1rem"
+                  for="flexRadioDefault1"
+                >
+                  Two Wheels
+                </label>
+              </div>
             </div>
           </div>
-        </div>
           <div class="mb-3 custom-form">
-            <label for="formGroupExampleInput" class=" fw-bold fs-5 form-label mt-4"
+            <label
+              for="formGroupExampleInput"
+              class="fw-bold fs-5 form-label mt-4"
               >Vehicle Number</label
             >
             <input
@@ -136,10 +198,12 @@
               id="formGroupExampleInput"
               placeholder="Eg. U 1234"
             />
-            <p v-if ="veh_err != '' " class="text-danger"><small>{{veh_err}}</small></p>           
+            <p v-if="veh_err != '' " class="text-danger">
+              <small>{{veh_err}}</small>
+            </p>
           </div>
-          
-          <button @click="getResults" class="custom-btn  mt-3 ">
+
+          <button @click="getResults" class="custom-btn mt-3">
             <span v-if="btntext !== 'Check Details' ">
               <img :src="loaderUrl" alt="'loader" width="20px;" /> &nbsp;</span
             ><span v-text="btntext"></span>
@@ -147,183 +211,305 @@
         </div>
       </div>
 
-             <!-- rersults div starts here -->
+      <!-- rersults div starts here -->
       <div v-if="responseErroe != '' ">{{responseErroe}}</div>
       <div id="results" v-if="results != '' ">
-        <div class=" container d-flex justify-content-center ">
-          <div class="col-md-8 ">
-
-         
-          <table class="table table-bordered caption-top">
-            <h4 class="mt-4">Results</h4>
-            <tbody>
-              <tr v-for= "(result, index) in results ">
-                <td style="width: 40%">{{index.toUpperCase().replace("_", " ")}}</td>
-                <td>{{result}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="container d-flex justify-content-center">
+          <div class="col-md-8">
+            <table class="table table-bordered caption-top">
+              <h4 class="mt-4">Results</h4>
+              <tbody>
+                <tr v-for="(result, index) in results ">
+                  <td style="width: 40%">
+                    {{index.toUpperCase().replace("_", " ")}}
+                  </td>
+                  <td>{{result}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      
-      <div class="container" >
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="container pera_group">
         <h1 class="mt-4 fs-4 mt-5">Online Vehicle Verification Sindh</h1>
+        <p class="fs-5">
+          <span
+            >Those from Pakistan's largest province will be pleased to know that
+            own personal vehicles and are involved in the purchase, or selling
+            vehicles. We will assist you with vehicle verification with a single
+            click from your smart phone or desktop computer. Is it not
+            worthwhile? To avoid standing in long lines in hot weather while
+            wearing an irritating mask during this COVID-19 situation.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Those from
-Pakistan's largest province will be pleased to know that own personal vehicles
-and are involved in the purchase, or selling vehicles. We will assist you with
-vehicle verification with a single click from your smart phone or desktop
-computer. Is it not worthwhile? To avoid standing in long lines in hot weather
-while wearing an irritating mask during this COVID-19 situation.</span></p>
+        <p class="fs-5">
+          <span>
+            It is very necessary to get the vehicle history checked because it
+            is very common to hear different types of frauds in car deals in
+            different parts of our country Pakistan. MTMIS Sindh assists in
+            verifying these details, whether it has a criminal record or is
+            clear. MTMIS Sind Online Vehicle Checking is available for your
+            convenience at
+            <a href="https://vehicleverification.pk/">Vehicleverification.pk</a>
+            . To avoid such legal issues in the vehicle, online car verification
+            by the Government of Sind is therefore extremely important. The
+            MTMIS Sin vehicle registration and transfer process differ slightly
+            from that of Sindh, necessitating the need for precise
+            information.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span> It is very
-necessary to get the vehicle history checked because it is very common to hear
-different types of frauds in car deals in different parts of our country
-Pakistan. MTMIS Sindh assists in verifying these details, whether it has a
-criminal record or is clear. MTMIS Sind Online Vehicle Checking is available
-for your convenience at <a href="https://vehicleverification.pk/">Vehicleverification.pk</a>
-. To avoid such legal issues in the vehicle, online car verification by the
-Government of Sind is therefore extremely important. The MTMIS Sin vehicle
-registration and transfer process differ slightly from that of Sindh,
-necessitating the need for precise information.</span></p>
+        <p class="fs-5">
+          <span
+            >The information displayed in the results may be based on the
+            records of your province's Excise and Taxation Department. If you
+            believe the information provided to you is inaccurate, has
+            inconsistencies, or needs to be updated, you can contact the
+            relevant authorities using the information provided further down in
+            the website vehicle verification.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>The information
-displayed in the results may be based on the records of your province's Excise
-and Taxation Department. If you believe the information provided to you is
-inaccurate, has inconsistencies, or needs to be updated, you can contact the
-relevant authorities using the information provided further down in the website
-vehicle verification.</span></p>
+        <h2>
+          <span class="mt-5 fs-4 "
+            >What is More Here in the Online Verification System?</span
+          >
+        </h2>
 
-<h2><span class="mt-5 fs-4">What is More Here in the Online Verification System?</span></h2>
+        <p class="fs-5">
+          <span
+            >Another important thing to look for is the possibility of duplicate
+            number plates on the vehicle. It will also indicate whether or not
+            the vehicle has been cleared by security agencies. It is a fantastic
+            initiative by the government of Pakistan to ensure that the process
+            of online vehicle verification can be completed in a matter of
+            minutes. You save yourself the trouble of buying a vehicle with a
+            shady history. As a result, the online vehicle verification
+            initiative represents a significant shift from a manual to an online
+            database, making everyone's lives easier.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Another
-important thing to look for is the possibility of duplicate number plates on
-the vehicle. It will also indicate whether or not the vehicle has been cleared
-by security agencies. It is a fantastic initiative by the government of
-Pakistan to ensure that the process of online vehicle verification can be
-completed in a matter of minutes. You save yourself the trouble of buying a
-vehicle with a shady history. As a result, the online vehicle verification
-initiative represents a significant shift from a manual to an online database,
-making everyone's lives easier.</span></p>
+        <h2>
+          <span class="fs-4"
+            >How to verify on the online Vehicle Verification?</span
+          >
+        </h2>
 
-<h2><span class="fs-4">How to verify on the online Vehicle Verification?</span></h2>
+        <p class="fs-5">
+          <span
+            >As aforementioned we will provide you the link to access Sindh
+            Excise and Taxation Online Portal. You have to click on the given
+            link that will display the required information as follow:</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>As
-aforementioned we will provide you the link to access Sindh Excise and Taxation
-Online Portal. You have to click on the given link that will display the
-required information as follow:</span></p>
+        <p
+          class="fs-5"
+         
+        >
+          <span 
+            >1.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Registration Date,</span>
+        </p>
 
-<p class=MsoListParagraphCxSpFirst style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Registration Date,</span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >2.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Model Year,</span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Model Year,</span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >3.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Engine Number, </span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Engine Number, </span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >4.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Owner's Name (Individual or Company), </span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Owner's Name (Individual or Company), </span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >5.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Tax Paid or Due, </span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Tax Paid or Due, </span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >6.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>Vehicle Body Type, </span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>Vehicle Body Type, </span></p>
+        <p
+           class="fs-5"
+         
+        >
+          <span 
+            >7.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>CPLC Clearance </span>
+        </p>
 
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>CPLC Clearance </span></p>
+        <p
+          class="MsoListParagraphCxSpLast"
+         
+        >
+          <span 
+            >8.<span style="font: 7pt 'Times New Roman'"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span></span
+          ><span>and Closing Remarks</span>
+        </p>
 
-<p class=MsoListParagraphCxSpLast style='text-align:justify;text-indent:-.25in'><span
-lang=EN-US>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span>and Closing Remarks</span></p>
+        <p  class="fs-5">
+          <span
+            >• A second table with the Owner's details, including Owner Name,
+            Father Name, and City, will appear on the screen. All previous
+            owners, as well as the current ones, will be displayed.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>• A second table
-with the Owner's details, including Owner Name, Father Name, and City, will
-appear on the screen. All previous owners, as well as the current ones, will be
-displayed.</span></p>
+        <p  class="fs-5">
+          <span
+            >Depending on where you live in the country, this online
+            verification process may require you to visit the excise department
+            and pay the fees.</span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Depending on
-where you live in the country, this online verification process may require you
-to visit the excise department and pay the fees.</span></p>
+        <p  class="fs-5">
+          <span>Where will I get all this information?</span>
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Where will I get
-all this information?</span></p>
+        <h2>
+          <span class="fs-4">Contact Details of Excise and Taxation Sindh</span>
+        </h2>
 
-<h2><span class="fs-4">Contact Details of Excise and Taxation Sindh</span></h2>
+        <p  class="fs-5">
+          <span>Contact # 021-99231410</span>
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Contact #                             021-99231410</span></p>
+        <p  class="fs-5">
+          <span>Address Taghlaq House Sindh Secretariat Karachi Pakistan</span>
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Address                               Taghlaq
-House Sindh Secretariat Karachi Pakistan</span></p>
+        <p  class="fs-5">
+          <span
+            >Website
+            <a
+              href="content/Vehicle%20Verification%20Articles/content/Vehicle%20Verification%20Articles/www.excise.gos.pk"
+              >www.excise.gos.pk</a
+            ></span
+          >
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Website                               <a
-href="content/Vehicle%20Verification%20Articles/content/Vehicle%20Verification%20Articles/www.excise.gos.pk">www.excise.gos.pk</a></span></p>
+        <p  class="fs-5">
+          <span>Email Address info@excise.gos.pk</span>
+        </p>
 
-<p class=MsoNormal style='text-align:justify'><span>Email Address    info@excise.gos.pk</span></p>
+        <h2><span class="fs-4">The End words:</span></h2>
 
-<h2><span class="fs-4">The End words:</span></h2>
-
-<p class=MsoNormal style='text-align:justify'><span>We are confident
-that the residents of Sindh Province would appreciate this important
-information. Stay tuned to the Vehicle Verification website for the most
-up-to-date terms and conditions from the Department of Excise and Taxation.</span></p>
+        <p  class="fs-5">
+          <span
+            >We are confident that the residents of Sindh Province would
+            appreciate this important information. Stay tuned to the Vehicle
+            Verification website for the most up-to-date terms and conditions
+            from the Department of Excise and Taxation.</span
+          >
+        </p>
       </div>
-      
-
-      <!-- {{ results }} -->
- 
     </div>
-    <footer class="d-flex  justify-content-center "style="margin-top: 7.5rem" >
-      <div class=" text-center d-flex  justify-content-between ">
-           &copy;2021 All rights reserved &nbsp;
-         <span>
-           Made with <img src="./img/Heart.jpg" width="20px"; alt="Love"> in <a href="#" target="_blank">Emodian Technologies  </a>
-       </span>
+    </div>
+  </div>
+    </div>
+    <footer class="d-flex justify-content-center" style="margin-top: 7.5rem">
+      <div class="text-center d-flex justify-content-between">
+        &copy;2021 All rights reserved &nbsp;
+        <span>
+          Made with <img src="./img/Heart.jpg" width="20px" ; alt="Love" /> in
+          <a href="#" target="_blank">Emodian Technologies </a>
+        </span>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
       integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
-   
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+      crossorigin="anonymous"
+    ></script>
+
     <script>
       new Vue({
         el: "#app",
         data: {
           url_sindh: "http://159.65.169.2:8001/sindh/",
           veh_num: "",
-          wheelsType : 1,
+          wheelsType: 1,
           results: "",
           btntext: "Check Details",
           loaderUrl: "https://i.gifer.com/ZZ5H.gif",
           responseErroe: "",
           veh_err: "",
-          distt_err: ""
+          distt_err: "",
         },
 
         methods: {
           getResults() {
             let _this = this;
-            if(_this.veh_num == "" ){
-              _this.veh_err ="Please Enter Vehicle number";
-              return
-            }else {
+            if (_this.veh_num == "") {
+              _this.veh_err = "Please Enter Vehicle number";
+              return;
+            } else {
               this.veh_err = "";
             }
-           
+
             _this.btntext = "please wait...";
             axios
               .get(
@@ -347,7 +533,5 @@ up-to-date terms and conditions from the Department of Excise and Taxation.</spa
         created: function () {},
       });
     </script>
-
-</body>
-
+  </body>
 </html>

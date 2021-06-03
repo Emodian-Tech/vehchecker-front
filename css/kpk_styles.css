@@ -43,10 +43,7 @@
     border: 1px solid #ced4da
 }
 
-/* .custom-input:focus-visible{
-    /* border-color: #ffff !important; */
 
-} */
 .btn-outline-success {
     border-color: #ffff !important;
 }
@@ -84,4 +81,9 @@
 .custom-form {
     display: flex;
     flex-direction: column;
+}
+
+.pera_group {
+    width: 90% !important;
+    text-align: justify;
 }
