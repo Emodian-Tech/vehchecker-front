@@ -83,7 +83,14 @@
     flex-direction: column;
 }
 
-/* .pera_group {
-    width: 90% !important;
-    text-align: justify;
-} */
+.imgResponsie{
+    width: 60%;
+}
+
+
+@media screen and (max-width: 480px) {
+   .colorWhite {
+       width: 68%;
+   }
+  }
+
